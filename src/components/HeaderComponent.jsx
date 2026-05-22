@@ -1,25 +1,42 @@
 import { header } from "motion/react-client";
 import navigationMenu from './modulescss/navigationMenu.js'
 import { NavigationMenu } from "@base-ui/react";
+import api from '../config/api/api.js'
+import { useState, useEffect } from "react";
+
 
 export function HeaderComponent() {
+    
+    const [departments, setDepartments] = useState([])
+    
+    useEffect(() => {
+        api.get("/departments")
+        .then(res => {
+            setDepartments(res.data);
+        })
+        .catch(err => {
+            console.log('ERROR IN HeaderComponent with /departments: ', err.message)
+        })
+    }, [])
+
     return (
         <header className="dark:text-slate-50">
             <NavigationMenu.Root className={navigationMenu.Root}>
                 <NavigationMenu.List className={`${navigationMenu.List} `}>
+
                     <NavigationMenu.Item>
                         <NavigationMenu.Trigger className={`${navigationMenu.Trigger}`}>
-                            Overview
+                            Departments
                             <NavigationMenu.Icon className={navigationMenu.Icon}>
                                 <CaretDownIcon />
                             </NavigationMenu.Icon>
                         </NavigationMenu.Trigger>
                         <NavigationMenu.Content className={navigationMenu.Content}>
                             <ul className={navigationMenu.GridLinkList}>
-                                {overviewLinks.map((item) => (
+                                {departments.map((item) => (
                                     <li key={item.href}>
                                         <Link className={navigationMenu.LinkCard} href={item.href}>
-                                            <h3 className={navigationMenu.LinkTitle}>{item.title}</h3>
+                                            <h3 className={navigationMenu.LinkTitle}>{item.name}</h3>
                                             <p className={navigationMenu.LinkDescription}>{item.description}</p>
                                         </Link>
                                     </li>
