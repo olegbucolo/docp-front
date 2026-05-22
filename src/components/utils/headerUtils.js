@@ -6,4 +6,4 @@ function setTheme(theme) {
     } else {
         html.classList.remove("dark");
     }
-} s
+}

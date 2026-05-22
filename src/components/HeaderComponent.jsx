@@ -1,6 +1,6 @@
 import { header } from "motion/react-client";
 import navigationMenu from './modulescss/navigationMenu.js'
-import { Avatar, Drawer, NavigationMenu } from "@base-ui/react";
+import { Autocomplete, Avatar, Drawer, NavigationMenu } from "@base-ui/react";
 import api from '../config/api/api.js'
 import { useState, useEffect } from "react";
 import { Menu } from "@base-ui/react";
@@ -8,6 +8,8 @@ import menu from './modulescss/menu.js'
 import avatar from './modulescss/avatar.js'
 import drawer from './modulescss/drawer.js'
 import { IoIosSettings } from "react-icons/io";
+import autocomplete from './modulescss/autocomplete.js'
+
 
 export function HeaderComponent() {
 
@@ -94,6 +96,33 @@ export function HeaderComponent() {
                     </NavigationMenu.Positioner>
                 </NavigationMenu.Portal>
             </NavigationMenu.Root>
+
+            <Autocomplete.Root items={departments}>
+                <label className={autocomplete.Label}>
+                    <Autocomplete.Input placeholder="cerca qualcosa..." className={` ${autocomplete.Input}`} />
+                </label>
+
+                <Autocomplete.Portal >
+                    <Autocomplete.Positioner className={autocomplete.Positioner} sideOffset={4}>
+                        <Autocomplete.Popup className={autocomplete.Popup}>
+                            <Autocomplete.Empty>
+                                <div className={autocomplete.Empty}>No tags found.</div>
+                            </Autocomplete.Empty>
+                            <Autocomplete.List className={autocomplete.List}>
+                                {(department) => (
+                                    <Autocomplete.Item
+                                        key={department.id}
+                                        className={autocomplete.Item}
+                                        value={department.name}
+                                    >
+                                        {department.name}
+                                    </Autocomplete.Item>
+                                )}
+                            </Autocomplete.List>
+                        </Autocomplete.Popup>
+                    </Autocomplete.Positioner>
+                </Autocomplete.Portal>
+            </Autocomplete.Root>
 
             {/* 
 
