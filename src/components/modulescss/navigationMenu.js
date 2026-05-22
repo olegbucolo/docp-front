@@ -16,9 +16,9 @@ const navigationMenu = {
     bg-transparent text-slate-900 dark:text-white
     select-none text-decoration-none
 
-    hover:bg-slate-100 dark:hover:bg-slate-800
+    hover:bg-slate-100 dark:hover:bg-slate-900
 
-    data-[popup-open]:bg-slate-100 dark:data-[popup-open]:bg-slate-800
+    data-[popup-open]:bg-slate-100 dark:data-[popup-open]:bg-slate-900
 
     focus-visible:outline-2 focus-visible:outline-slate-900
     dark:focus-visible:outline-white
@@ -103,9 +103,9 @@ const navigationMenu = {
     text-left bg-transparent border-0
     text-inherit
 
-    hover:bg-slate-100 dark:hover:bg-slate-800
+    hover:bg-slate-100 dark:hover:bg-slate-900
 
-    data-[popup-open]:bg-slate-100 dark:data-[popup-open]:bg-slate-800
+    data-[popup-open]:bg-slate-100 dark:data-[popup-open]:bg-slate-900
 
     focus-visible:outline-2 focus-visible:outline-slate-900
     dark:focus-visible:outline-white

@@ -3,24 +3,27 @@ import navigationMenu from './modulescss/navigationMenu.js'
 import { NavigationMenu } from "@base-ui/react";
 import api from '../config/api/api.js'
 import { useState, useEffect } from "react";
-
+import { Menu } from "@base-ui/react";
+import menu from './modulescss/menu.js'
 
 export function HeaderComponent() {
-    
+
     const [departments, setDepartments] = useState([])
-    
+
     useEffect(() => {
         api.get("/departments")
-        .then(res => {
-            setDepartments(res.data);
-        })
-        .catch(err => {
-            console.log('ERROR IN HeaderComponent with /departments: ', err.message)
-        })
+            .then(res => {
+                console.log(res.data);
+                console.log(Array.isArray(res.data));
+                setDepartments(res.data);
+            })
+            .catch(err => {
+                console.log('ERROR IN HeaderComponent with /departments: ', err.message)
+            })
     }, [])
 
     return (
-        <header className="dark:text-slate-50">
+        <header className="container mx-auto px-4 dark:text-slate-50 flex justify-between">
             <NavigationMenu.Root className={navigationMenu.Root}>
                 <NavigationMenu.List className={`${navigationMenu.List} `}>
 
@@ -34,8 +37,9 @@ export function HeaderComponent() {
                         <NavigationMenu.Content className={navigationMenu.Content}>
                             <ul className={navigationMenu.GridLinkList}>
                                 {departments.map((item) => (
-                                    <li key={item.href}>
-                                        <Link className={navigationMenu.LinkCard} href={item.href}>
+
+                                    <li key={item.id}>
+                                        <Link className={navigationMenu.LinkCard} href={item.id}>
                                             <h3 className={navigationMenu.LinkTitle}>{item.name}</h3>
                                             <p className={navigationMenu.LinkDescription}>{item.description}</p>
                                         </Link>
@@ -87,6 +91,19 @@ export function HeaderComponent() {
                     </NavigationMenu.Positioner>
                 </NavigationMenu.Portal>
             </NavigationMenu.Root>
+            <Menu.Root>
+                <Menu.Trigger className={menu.Button}>
+                    Theme <CaretDownIcon />
+                </Menu.Trigger>
+                <Menu.Portal>
+                    <Menu.Positioner className={menu.Positioner} sideOffset={8}>
+                        <Menu.Popup className={menu.Popup}>
+                            <Menu.Item onClick={() => setTheme("dark")} className={menu.Item}>Dark</Menu.Item>
+                            <Menu.Item onClick={() => setTheme("light")} className={menu.Item}>Light</Menu.Item>
+                        </Menu.Popup>
+                    </Menu.Positioner>
+                </Menu.Portal>
+            </Menu.Root>
         </header>
     )
 }
