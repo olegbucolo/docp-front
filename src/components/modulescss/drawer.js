@@ -1,23 +1,40 @@
 const drawer = {
-    Button: `
-    box-border flex items-center justify-center gap-2
-    h-8 m-0 mx-2
-    bg-slate-100 dark:bg-slate-900
-    text-slate-900 dark:text-white
-    text-sm font-normal leading-none whitespace-nowrap
-    select-none
-    font-inherit
+   Button: `
+  group
+  relative
+  box-border flex items-center justify-center gap-2
+  m-0 mx-2
+  h-8 w-8
+  rounded-full
 
-    data-[disabled]:text-slate-400
-    data-[disabled]:border-slate-400
-    dark:data-[disabled]:text-slate-500
-    dark:data-[disabled]:border-slate-500
+  bg-slate-100 dark:bg-slate-900
+  text-slate-900 dark:text-white
 
-    focus-visible:outline-2
-    focus-visible:outline-slate-900
-    dark:focus-visible:outline-white
-    focus-visible:outline-offset-[-1px]
-  `,
+  text-sm font-normal leading-none whitespace-nowrap
+  select-none font-inherit
+
+  data-[disabled]:text-slate-400
+  dark:data-[disabled]:text-slate-500
+
+  focus-visible:outline-2
+  focus-visible:outline-slate-900
+  dark:focus-visible:outline-white
+  focus-visible:outline-offset-[-1px]
+
+`,
+
+   Overlay: `
+     absolute inset-0
+  z-10
+  rounded-full
+  pointer-events-none
+
+  shadow-fah
+
+  group-active:shadow-fahActive
+transition-all
+duration-200
+`,
 
     Backdrop: `
     fixed inset-0

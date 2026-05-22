@@ -4,20 +4,21 @@ const autocomplete = {
     w-64 h-8
     px-4 m-0
     
-    bg-slate-100 dark:bg-slate-900
+    bg-white dark:bg-slate-800
     text-slate-900 dark:text-white
     font-normal text-sm leading-5
     font-inherit
     outline-none w-auto
-    shadow-fah
-
-    focus:shadow-fahActive
+    
+    shadow-fahActive
+    rounded-3xl
+    
     placeholder:text-slate-500 dark:placeholder:text-slate-400
     transition-all duration-200
     
 
     motion-safe:text-base motion-safe:leading-6
-    rounded-3xl
+    
   `,
 
   Label: `
@@ -25,6 +26,7 @@ const autocomplete = {
     text-sm leading-5 font-bold
     text-slate-900 dark:text-white
     mx-5 
+    
   `,
 
   Positioner: `
@@ -33,15 +35,18 @@ const autocomplete = {
 
   Popup: `
     box-border
-    bg-slate-100 dark:bg-slate-900
+    bg-white dark:bg-slate-800
     text-slate-900 dark:text-white
 
     w-[var(--anchor-width)]
     max-w-[var(--available-width)]
 
-    border border-slate-900 dark:border-white
-    shadow-[0.25rem_0.25rem_0_rgb(0_0_0_/_12%)]
+    px-2
+    
     dark:shadow-none 
+
+    shadow-fah dark:shadow-fah
+    rounded-2xl
   `,
 
   List: `
@@ -66,19 +71,30 @@ const autocomplete = {
     select-none
     outline-none
 
+
     px-2 py-2
     text-sm leading-4
 
-    data-[highlighted]:z-0
-    data-[highlighted]:text-white
-    dark:data-[highlighted]:text-slate-900
-
+    
     data-[highlighted]:before:content-['']
     data-[highlighted]:before:absolute
     data-[highlighted]:before:inset-0
     data-[highlighted]:before:-z-10
-    data-[highlighted]:before:bg-slate-900
-    dark:data-[highlighted]:before:bg-white
+    data-[highlighted]:before:bg-white
+    data-[highlighted]:text-slate-900
+    data-[highlighted]:before:rounded-3xl
+    data-[highlighted]:before:hover:shadow-fah
+    data-[highlighted]:before:active:shadow-fahActive
+
+    data-[highlighted]:z-0
+    data-[highlighted]:text-white
+    dark:data-[highlighted]:text-slate-100
+    dark:data-[highlighted]:before:bg-slate-800
+    dark:data-[highlighted]:before:hover:shadow-fah
+    dark:data-[highlighted]:before:active:shadow-fahActive
+    transition-all
+    duration-200
+    
   `,
 
   Separator: `

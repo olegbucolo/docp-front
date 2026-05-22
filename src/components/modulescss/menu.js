@@ -1,32 +1,41 @@
 const menu = {
   Button: `
-    box-border flex items-center justify-center gap-1.5
-    h-8 px-1 m-0
-    bg-slate-100 dark:bg-slate-900
-    text-slate-900 dark:text-white
-    text-sm font-normal leading-none whitespace-nowrap
-    select-none outline-none
+    relative
+  group
 
-    transition-al
-    duration-200
+  box-border flex items-center justify-center gap-1.5
+  h-8 m-0
 
-    active:bg-slate-300 dark:active:bg-slate-700
+  bg-slate-100 dark:bg-slate-900
+  text-slate-900 dark:text-white
+  text-sm font-normal leading-none whitespace-nowrap
 
-    data-[popup-open]:bg-slate-200
-    dark:data-[popup-open]:bg-slate-800
+  select-none outline-none
+  transition-all duration-200
 
-    data-[disabled]:text-slate-400
-    data-[disabled]:border-slate-400
+  active:bg-slate-300 dark:active:bg-slate-700
 
-    dark:data-[disabled]:text-slate-500
-    dark:data-[disabled]:border-slate-500
+  data-[disabled]:text-slate-400
+  dark:data-[disabled]:text-slate-500
 
-    focus-visible:outline-2
-    focus-visible:outline-slate-900
-    dark:focus-visible:outline-white
-    focus-visible:outline-offset-[-1px]
+  focus-visible:outline-2
+  focus-visible:outline-slate-900
+  dark:focus-visible:outline-white
+  focus-visible:outline-offset-[-1px]
+   
   `,
+  Overlay: `
+     absolute inset-0
+  z-10
+  rounded-full
+  pointer-events-none
 
+  shadow-fah
+
+  group-data-[popup-open]:shadow-fahActive
+transition-all
+duration-200
+`,
   Positioner: `
     outline-none
   `,

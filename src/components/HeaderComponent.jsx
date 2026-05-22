@@ -143,8 +143,10 @@ export function HeaderComponent() {
 
             <div className="flex">
 
-                <Menu.Root>
+                <Menu.Root >
+
                     <Menu.Trigger className={menu.Button}>
+                              <div className={menu.Overlay} />
 
                         <Avatar.Root className={avatar.Root}>
                             <Avatar.Image
@@ -173,6 +175,7 @@ export function HeaderComponent() {
                 {/* <Avatar.Root className={avatar.Root}>LT</Avatar.Root> */}
                 <Drawer.Root swipeDirection="right">
                     <Drawer.Trigger className={drawer.Button}>
+                        <div className={drawer.Overlay}></div>
                         <IoIosSettings className="size-6" />
 
                     </Drawer.Trigger>
