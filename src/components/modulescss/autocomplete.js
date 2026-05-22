@@ -11,6 +11,7 @@ const autocomplete = {
     outline-none w-auto
     shadow-fah
 
+    focus:shadow-fahActive
     placeholder:text-slate-500 dark:placeholder:text-slate-400
 
     
