@@ -1,10 +1,13 @@
 import { header } from "motion/react-client";
 import navigationMenu from './modulescss/navigationMenu.js'
-import { NavigationMenu } from "@base-ui/react";
+import { Avatar, Drawer, NavigationMenu } from "@base-ui/react";
 import api from '../config/api/api.js'
 import { useState, useEffect } from "react";
 import { Menu } from "@base-ui/react";
 import menu from './modulescss/menu.js'
+import avatar from './modulescss/avatar.js'
+import drawer from './modulescss/drawer.js'
+import { IoIosSettings } from "react-icons/io";
 
 export function HeaderComponent() {
 
@@ -23,7 +26,7 @@ export function HeaderComponent() {
     }, [])
 
     return (
-        <header className="container mx-auto px-4 dark:text-slate-50 flex justify-between">
+        <header className="container mx-auto px-4 dark:text-slate-50 flex justify-between pt-4">
             <NavigationMenu.Root className={navigationMenu.Root}>
                 <NavigationMenu.List className={`${navigationMenu.List} `}>
 
@@ -51,7 +54,7 @@ export function HeaderComponent() {
 
                     <NavigationMenu.Item value="b">
                         <NavigationMenu.Trigger className={navigationMenu.Trigger}>
-                            Handbook
+                            Services
                             <NavigationMenu.Icon className={navigationMenu.Icon}>
                                 <CaretDownIcon />
                             </NavigationMenu.Icon>
@@ -91,19 +94,93 @@ export function HeaderComponent() {
                     </NavigationMenu.Positioner>
                 </NavigationMenu.Portal>
             </NavigationMenu.Root>
-            <Menu.Root>
-                <Menu.Trigger className={menu.Button}>
-                    Theme <CaretDownIcon />
-                </Menu.Trigger>
-                <Menu.Portal>
-                    <Menu.Positioner className={menu.Positioner} sideOffset={8}>
-                        <Menu.Popup className={menu.Popup}>
-                            <Menu.Item onClick={() => setTheme("dark")} className={menu.Item}>Dark</Menu.Item>
-                            <Menu.Item onClick={() => setTheme("light")} className={menu.Item}>Light</Menu.Item>
-                        </Menu.Popup>
-                    </Menu.Positioner>
-                </Menu.Portal>
-            </Menu.Root>
+
+            {/* 
+
+                <div >
+                    <Avatar.Root className={avatar.Root}>
+                        <Avatar.Image
+                            src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
+                            width="48"
+                            height="48"
+                            className={avatar.Image}
+                        />
+                        <Avatar.Fallback delay={600} className={avatar.Fallback}>
+                            LT
+                        </Avatar.Fallback>
+                    </Avatar.Root>
+                    <Avatar.Root className={avatar.Root}>LT</Avatar.Root>
+                </div> */}
+
+            <div className="flex">
+
+                <Menu.Root>
+                    <Menu.Trigger className={menu.Button}>
+
+                        <Avatar.Root className={avatar.Root}>
+                            <Avatar.Image
+                                src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
+                                width="48"
+                                height="48"
+                                className={avatar.Image}
+                            />
+                            <Avatar.Fallback delay={600} className={avatar.Fallback}>
+                                LT
+                            </Avatar.Fallback>
+                        </Avatar.Root>
+
+                    </Menu.Trigger>
+                    <Menu.Portal>
+                        <Menu.Positioner className={menu.Positioner} sideOffset={8}>
+                            <Menu.Popup className={menu.Popup}>
+                                <Menu.Item className={menu.Item}>Profile</Menu.Item>
+                                <Menu.Item className={` ${menu.Item} dark:data-[highlighted]:before:bg-red-700 dark:data-[highlighted]:text-slate-100`}>Logout</Menu.Item>
+                            </Menu.Popup>
+                        </Menu.Positioner>
+                    </Menu.Portal>
+                </Menu.Root>
+
+
+                {/* <Avatar.Root className={avatar.Root}>LT</Avatar.Root> */}
+                <Drawer.Root swipeDirection="right">
+                    <Drawer.Trigger className={drawer.Button}>
+                        <IoIosSettings className="size-6" />
+
+                    </Drawer.Trigger>
+                    <Drawer.Portal>
+                        <Drawer.Backdrop className={drawer.Backdrop} />
+                        <Drawer.Viewport className={drawer.Viewport}>
+                            <Drawer.Popup className={drawer.Popup}>
+                                <Drawer.Content className={drawer.Content}>
+                                    <Drawer.Title className={drawer.Title}>Drawer</Drawer.Title>
+                                    <Drawer.Description className={drawer.Description}>
+                                        This is a drawer that slides in from the side. You can swipe to dismiss it.
+                                    </Drawer.Description>
+                                    <Menu.Root>
+                                        <Menu.Trigger className={menu.Button}>
+                                            Theme <CaretDownIcon />
+                                        </Menu.Trigger>
+                                        <Menu.Portal>
+                                            <Menu.Positioner className={menu.Positioner} sideOffset={8}>
+                                                <Menu.Popup className={menu.Popup}>
+                                                    <Menu.Item onClick={() => setTheme("dark")} className={menu.Item}>Dark</Menu.Item>
+                                                    <Menu.Item onClick={() => setTheme("light")} className={menu.Item}>Light</Menu.Item>
+                                                </Menu.Popup>
+                                            </Menu.Positioner>
+                                        </Menu.Portal>
+                                    </Menu.Root>
+                                    <div className={drawer.Actions}>
+                                        <Drawer.Close className={drawer.Button}>Close</Drawer.Close>
+                                    </div>
+
+                                </Drawer.Content>
+                            </Drawer.Popup>
+                        </Drawer.Viewport>
+                    </Drawer.Portal>
+                </Drawer.Root>
+            </div>
+
+
         </header>
     )
 }

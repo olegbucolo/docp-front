@@ -1,14 +1,14 @@
 const menu = {
   Button: `
     box-border flex items-center justify-center gap-1.5
-    h-8 px-2 pl-3 m-0
-    border border-slate-100 dark:border-slate-900
+    h-8 px-1 m-0
     bg-slate-100 dark:bg-slate-900
     text-slate-900 dark:text-white
     text-sm font-normal leading-none whitespace-nowrap
     select-none outline-none
 
-    hover:bg-slate-200 dark:hover:bg-slate-800
+    transition-al
+    duration-200
 
     active:bg-slate-300 dark:active:bg-slate-700
 
@@ -34,7 +34,7 @@ const menu = {
   Popup: `
     box-border relative outline-none
     py-1
-    border border-slate-100 dark:border-slate-900
+    border border-slate-900 dark:border-slate-100
     bg-slate-100 dark:bg-slate-900
     text-slate-900 dark:text-white
 
