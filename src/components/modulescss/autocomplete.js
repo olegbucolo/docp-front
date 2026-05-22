@@ -13,7 +13,7 @@ const autocomplete = {
 
     focus:shadow-fahActive
     placeholder:text-slate-500 dark:placeholder:text-slate-400
-
+    transition-all duration-200
     
 
     motion-safe:text-base motion-safe:leading-6
