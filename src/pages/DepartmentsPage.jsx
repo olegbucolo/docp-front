@@ -1,5 +1,4 @@
 import axios from 'axios';
-import "./DepartmentsPage.css"
 import { Accordion } from '@base-ui/react';
 import accordion from './modulescss/accordion.module.css';
 import drawer from './modulescss/drawer.module.css'
