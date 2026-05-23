@@ -127,23 +127,6 @@ export function HeaderComponent() {
                 </Autocomplete.Portal>
             </Autocomplete.Root>
 
-            {/* 
-
-                <div >
-                    <Avatar.Root className={avatar.Root}>
-                        <Avatar.Image
-                            src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
-                            width="48"
-                            height="48"
-                            className={avatar.Image}
-                        />
-                        <Avatar.Fallback delay={600} className={avatar.Fallback}>
-                            LT
-                        </Avatar.Fallback>
-                    </Avatar.Root>
-                    <Avatar.Root className={avatar.Root}>LT</Avatar.Root>
-                </div> */}
-
             <div className="flex">
 
 
@@ -170,12 +153,12 @@ export function HeaderComponent() {
                             <Drawer.Popup className={drawer.Popup}>
                                 <Drawer.Content className={`${drawer.Content} flex flex-col justify-between min-h-full`}>
                                     <div className="drawer-top flex justify-between">
-                                        <Avatar.Root className={`${avatar.Root}`}>
+                                        <Avatar.Root className={`${avatar.Root} ms-2`}>
                                             <Avatar.Image
                                                 src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
                                                 width="48"
                                                 height="48"
-                                                className={avatar.Image}
+                                                className={`${avatar.Image}`}
                                             />
                                             <Avatar.Fallback delay={600} className={avatar.Fallback}>
                                                 LT
@@ -293,28 +276,6 @@ function CaretDownIcon(props) {
     );
 }
 
-const overviewLinks = [
-    {
-        href: '/react/overview/quick-start',
-        title: 'Quick Start',
-        description: 'Install and assemble your first component.',
-    },
-    {
-        href: '/react/overview/accessibility',
-        title: 'Accessibility',
-        description: 'Learn how we build accessible components.',
-    },
-    {
-        href: '/react/overview/releases',
-        title: 'Releases',
-        description: 'See what’s new in the latest Base UI versions.',
-    },
-    {
-        href: '/react/overview/about',
-        title: 'About',
-        description: 'Learn more about Base UI and our mission.',
-    },
-];
 
 const handbookLinks = [
     {

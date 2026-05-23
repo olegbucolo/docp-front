@@ -1,5 +1,5 @@
 const drawer = {
-   Button: `
+  Button: `
   group
   relative
   box-border flex items-center justify-center gap-2
@@ -23,7 +23,7 @@ const drawer = {
 
 `,
 
-   Overlay: `
+  Overlay: `
      absolute inset-0
   z-10
   rounded-full
@@ -36,7 +36,7 @@ transition-all
 duration-200
 `,
 
-    Backdrop: `
+  Backdrop: `
     fixed inset-0
     min-h-dvh
     bg-black
@@ -56,14 +56,14 @@ duration-200
     data-[swiping]:transition-none
   `,
 
-    Viewport: `
+  Viewport: `
     fixed inset-0
     flex justify-end
     p-0
     supports-[(-webkit-touch-callout:none)]:p-[0.625rem]
   `,
 
-    Popup: `
+  Popup: `
     box-border
     w-[calc(20rem+3rem)]
     max-w-[calc(100vw-3rem+3rem)]
@@ -72,47 +72,47 @@ duration-200
     p-4 pr-[calc(1.5rem+3rem)]
     -mr-[3rem]
 
-    border-l border-slate-900 dark:border-white
     bg-white dark:bg-slate-900
     text-slate-900 dark:text-white
-
-    shadow-[0.25rem_0.25rem_0_rgb(0_0_0_/_12%)]
-    dark:shadow-none
-
+    
+    shadow-fah dark:shadow-fah
+    rounded-lg
+    
     overflow-y-auto
     overscroll-contain
     outline-none
-
+    
     will-change-transform
     transition-transform duration-[450ms]
     ease-[cubic-bezier(0.32,0.72,0,1)]
-
+    
     data-[swiping]:select-none
-
+    
     data-[starting-style]:translate-x-[calc(100%-3rem)]
     data-[ending-style]:translate-x-[calc(100%-3rem)]
-
+    
     supports-[(-webkit-touch-callout:none)]:border
     supports-[(-webkit-touch-callout:none)]:mr-0
-  `,
+    
+    `,
 
-    Content: `
+  Content: `
     w-full max-w-2xl
     mx-auto
   `,
 
-    Title: `
+  Title: `
     mt-0 mb-1
     text-base font-bold leading-6
   `,
 
-    Description: `
+  Description: `
     m-0 mb-6
     text-sm leading-5
     text-slate-600 dark:text-slate-400
   `,
 
-    Actions: `
+  Actions: `
     flex justify-end gap-3
     
   `,
