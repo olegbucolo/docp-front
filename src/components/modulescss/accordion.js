@@ -7,7 +7,7 @@ const accordion = {
     border border-slate-900 dark:border-slate-100
 
     text-slate-900 dark:text-slate-100
-    bg-slate-100 dark:bg-slate-900
+    bg-white dark:bg-slate-900
   `,
 
   Item: `

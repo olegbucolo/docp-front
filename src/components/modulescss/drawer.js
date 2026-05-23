@@ -7,7 +7,7 @@ const drawer = {
   h-8 w-8
   rounded-full
 
-  bg-slate-100 dark:bg-slate-900
+  bg-white dark:bg-slate-900
   text-slate-900 dark:text-white
 
   text-sm font-normal leading-none whitespace-nowrap
@@ -69,7 +69,7 @@ duration-200
     max-w-[calc(100vw-3rem+3rem)]
     h-full
 
-    p-6 pr-[calc(1.5rem+3rem)]
+    p-4 pr-[calc(1.5rem+3rem)]
     -mr-[3rem]
 
     border-l border-slate-900 dark:border-white
@@ -114,7 +114,9 @@ duration-200
 
     Actions: `
     flex justify-end gap-3
+    
   `,
+
 };
 
 export default drawer;

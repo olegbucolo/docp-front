@@ -181,56 +181,41 @@ export function HeaderComponent() {
                                             </Avatar.Fallback>
                                         </Avatar.Root>
                                         <div className={drawer.Actions}>
-                                            <Drawer.Close className={drawer.Button}>
-                                                <CgClose className="h-7 w-6" />
+                                            <Drawer.Close className={`${drawer.Button}`}>
+                                                <CgClose className="h-7 w-6 " />
                                             </Drawer.Close>
                                         </div>
                                     </div>
                                     <div className="drawer-middle flex-1 mt-6">
-                                        <Accordion.Root className={`${accordion.Accordion}`}>
-                                            <Accordion.Item className={accordion.Item}>
-                                                <Accordion.Header className={accordion.Header}>
-                                                    <Accordion.Trigger className={accordion.Trigger}>
-                                                        What is Base UI?
-                                                        <PlusIcon className={accordion.Icon} />
-                                                    </Accordion.Trigger>
-                                                </Accordion.Header>
-                                                <Accordion.Panel className={accordion.Panel}>
-                                                    <div className={accordion.Content}>
-                                                        Base UI is a library of high-quality unstyled React components for design systems and
-                                                        web apps.
-                                                    </div>
-                                                </Accordion.Panel>
-                                            </Accordion.Item>
+                                        <NavigationMenu.Root className={navigationMenu.Root}>
+                                            <NavigationMenu.List className={`${navigationMenu.List} flex flex-col`} >
 
-                                            <Accordion.Item className={accordion.Item}>
-                                                <Accordion.Header className={accordion.Header}>
-                                                    <Accordion.Trigger className={accordion.Trigger}>
-                                                        How do I get started?
-                                                        <PlusIcon className={accordion.Icon} />
-                                                    </Accordion.Trigger>
-                                                </Accordion.Header>
-                                                <Accordion.Panel className={accordion.Panel}>
-                                                    <div className={accordion.Content}>
-                                                        Head to the “Quick start” guide in the docs. If you’ve used unstyled libraries before,
-                                                        you’ll feel at home.
-                                                    </div>
-                                                </Accordion.Panel>
-                                            </Accordion.Item>
 
-                                            <Accordion.Item className={accordion.Item}>
-                                                <Accordion.Header className={accordion.Header}>
-                                                    <Accordion.Trigger className={accordion.Trigger}>
-                                                        Can I use it for my project?
-                                                        <PlusIcon className={accordion.Icon} />
-                                                    </Accordion.Trigger>
-                                                </Accordion.Header>
-                                                <Accordion.Panel className={accordion.Panel}>
-                                                    <div className={accordion.Content}>Of course! Base UI is free and open source.</div>
-                                                </Accordion.Panel>
-                                            </Accordion.Item>
-                                        </Accordion.Root>
+                                                <NavigationMenu.Item className={navigationMenu.Item}>
+                                                    <Link className={`${navigationMenu.TriggerDrawer}`} href="https://github.com/mui/base-ui">
+                                                        Offers
+                                                    </Link>
+                                                </NavigationMenu.Item>
+                                                <NavigationMenu.Item>
+                                                    <Link className={navigationMenu.TriggerDrawer} href="https://github.com/mui/base-ui">
+                                                        Visits
+                                                    </Link>
+                                                </NavigationMenu.Item>
+                                                <NavigationMenu.Item>
+                                                    <Link className={navigationMenu.TriggerDrawer} href="https://github.com/mui/base-ui">
+                                                        Reservations
+                                                    </Link>
+                                                </NavigationMenu.Item>
+                                                <NavigationMenu.Item>
+                                                    <Link className={navigationMenu.TriggerDrawer} href="https://github.com/mui/base-ui">
+                                                        Profile settings
+                                                    </Link>
+                                                </NavigationMenu.Item>
+                                            </NavigationMenu.List>
 
+
+                                        </NavigationMenu.Root>
+                                    
                                     </div>
                                     <div className="flex justify-between">
                                         <Menu.Root>
@@ -351,19 +336,19 @@ const handbookLinks = [
 ];
 
 function PlusIcon(props) {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 16 16"
-      fill="none"
-      stroke="currentColor"
-      strokeLinecap="square"
-      strokeLinejoin="round"
-      {...props}
-      style={{ display: 'block', ...props.style }}
-    >
-      <path d="M1.5 8h13M8 14.5v-13" />
-    </svg>
-  );
+    return (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="square"
+            strokeLinejoin="round"
+            {...props}
+            style={{ display: 'block', ...props.style }}
+        >
+            <path d="M1.5 8h13M8 14.5v-13" />
+        </svg>
+    );
 }

@@ -24,6 +24,24 @@ const navigationMenu = {
     dark:focus-visible:outline-white
   `,
 
+    TriggerDrawer: `
+    box-border flex items-center gap-1.5
+    h-8 px-3 max-[500px]:px-2
+    text-sm font-normal leading-5
+    hover:bg-slate-50 hover:dark:bg-slate-950
+    
+    text-slate-900 dark:text-white
+    select-none text-decoration-none
+
+    
+    hover:bg-slate-100 dark:hover:bg-slate-900
+    
+    data-[popup-open]:bg-slate-100 dark:data-[popup-open]:bg-slate-900
+    
+    focus-visible:outline-2 focus-visible:outline-slate-900
+    dark:focus-visible:outline-white
+  `,
+
   Icon: `
     flex items-center justify-center
     transition-transform duration-200
@@ -143,6 +161,10 @@ const navigationMenu = {
     data-[side=left]:rotate-90 data-[side=left]:-right-[9px]
     data-[side=right]:-rotate-90 data-[side=right]:-left-[9px]
   `,
+
+  Item: `
+    w-full 
+  `
 };
 
 export default navigationMenu;
