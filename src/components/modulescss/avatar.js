@@ -11,20 +11,14 @@ const avatar = {
     text-slate-900 dark:text-white
     bg-slate-200 dark:bg-slate-900
     shadow-fah
+    relative
     
- relative
-  inline-flex items-center justify-center
-  align-middle
-  rounded-full
-  overflow-hidden
-  h-8 w-8
+    `,
     
-  `,
-
-  Image: `
+    Image: `
     object-cover
     w-full h-full
-    
+    rounded-full
      absolute inset-0
   w-full h-full
   object-cover

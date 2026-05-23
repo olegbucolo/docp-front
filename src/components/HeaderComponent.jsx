@@ -1,6 +1,6 @@
 import { header } from "motion/react-client";
 import navigationMenu from './modulescss/navigationMenu.js'
-import { Autocomplete, Avatar, Drawer, NavigationMenu } from "@base-ui/react";
+import { Autocomplete, Avatar, Drawer, NavigationMenu, Accordion } from "@base-ui/react";
 import api from '../config/api/api.js'
 import { useState, useEffect } from "react";
 import { Menu } from "@base-ui/react";
@@ -9,6 +9,8 @@ import avatar from './modulescss/avatar.js'
 import drawer from './modulescss/drawer.js'
 import { IoIosSettings } from "react-icons/io";
 import autocomplete from './modulescss/autocomplete.js'
+import { CgClose } from "react-icons/cg";
+import accordion from './modulescss/accordion.js'
 
 
 export function HeaderComponent() {
@@ -33,7 +35,7 @@ export function HeaderComponent() {
                 <NavigationMenu.List className={`${navigationMenu.List} `}>
 
                     <NavigationMenu.Item>
-                        <NavigationMenu.Trigger className={`${navigationMenu.Trigger}`}>
+                        <NavigationMenu.Trigger className={`${navigationMenu.Trigger} `}>
                             Departments
                             <NavigationMenu.Icon className={navigationMenu.Icon}>
                                 <CaretDownIcon />
@@ -143,11 +145,11 @@ export function HeaderComponent() {
 
             <div className="flex">
 
-                <Menu.Root >
 
-                    <Menu.Trigger className={menu.Button}>
-                              <div className={menu.Overlay} />
-
+                {/* <Avatar.Root className={avatar.Root}>LT</Avatar.Root> */}
+                <Drawer.Root swipeDirection="right">
+                    <Drawer.Trigger className={drawer.Button}>
+                        <div className={drawer.Overlay}></div>
                         <Avatar.Root className={avatar.Root}>
                             <Avatar.Image
                                 src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
@@ -160,50 +162,108 @@ export function HeaderComponent() {
                             </Avatar.Fallback>
                         </Avatar.Root>
 
-                    </Menu.Trigger>
-                    <Menu.Portal>
-                        <Menu.Positioner className={menu.Positioner} sideOffset={8}>
-                            <Menu.Popup className={menu.Popup}>
-                                <Menu.Item className={menu.Item}>Profile</Menu.Item>
-                                <Menu.Item className={` ${menu.Item} dark:data-[highlighted]:before:bg-red-700 dark:data-[highlighted]:text-slate-100`}>Logout</Menu.Item>
-                            </Menu.Popup>
-                        </Menu.Positioner>
-                    </Menu.Portal>
-                </Menu.Root>
-
-
-                {/* <Avatar.Root className={avatar.Root}>LT</Avatar.Root> */}
-                <Drawer.Root swipeDirection="right">
-                    <Drawer.Trigger className={drawer.Button}>
-                        <div className={drawer.Overlay}></div>
-                        <IoIosSettings className="size-6" />
-
                     </Drawer.Trigger>
                     <Drawer.Portal>
                         <Drawer.Backdrop className={drawer.Backdrop} />
                         <Drawer.Viewport className={drawer.Viewport}>
                             <Drawer.Popup className={drawer.Popup}>
-                                <Drawer.Content className={drawer.Content}>
-                                    <Drawer.Title className={drawer.Title}>Drawer</Drawer.Title>
-                                    <Drawer.Description className={drawer.Description}>
-                                        This is a drawer that slides in from the side. You can swipe to dismiss it.
-                                    </Drawer.Description>
-                                    <Menu.Root>
-                                        <Menu.Trigger className={menu.Button}>
-                                            Theme <CaretDownIcon />
-                                        </Menu.Trigger>
-                                        <Menu.Portal>
-                                            <Menu.Positioner className={menu.Positioner} sideOffset={8}>
-                                                <Menu.Popup className={menu.Popup}>
-                                                    <Menu.Item onClick={() => setTheme("dark")} className={menu.Item}>Dark</Menu.Item>
-                                                    <Menu.Item onClick={() => setTheme("light")} className={menu.Item}>Light</Menu.Item>
-                                                </Menu.Popup>
-                                            </Menu.Positioner>
-                                        </Menu.Portal>
-                                    </Menu.Root>
-                                    <div className={drawer.Actions}>
-                                        <Drawer.Close className={drawer.Button}>Close</Drawer.Close>
+                                <Drawer.Content className={`${drawer.Content} flex flex-col justify-between min-h-full`}>
+                                    <div className="drawer-top flex justify-between">
+                                        <Avatar.Root className={`${avatar.Root}`}>
+                                            <Avatar.Image
+                                                src="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=128&h=128&dpr=2&q=80"
+                                                width="48"
+                                                height="48"
+                                                className={avatar.Image}
+                                            />
+                                            <Avatar.Fallback delay={600} className={avatar.Fallback}>
+                                                LT
+                                            </Avatar.Fallback>
+                                        </Avatar.Root>
+                                        <div className={drawer.Actions}>
+                                            <Drawer.Close className={drawer.Button}>
+                                                <CgClose className="h-7 w-6" />
+                                            </Drawer.Close>
+                                        </div>
                                     </div>
+                                    <div className="drawer-middle flex-1 mt-6">
+                                        <Accordion.Root className={`${accordion.Accordion}`}>
+                                            <Accordion.Item className={accordion.Item}>
+                                                <Accordion.Header className={accordion.Header}>
+                                                    <Accordion.Trigger className={accordion.Trigger}>
+                                                        What is Base UI?
+                                                        <PlusIcon className={accordion.Icon} />
+                                                    </Accordion.Trigger>
+                                                </Accordion.Header>
+                                                <Accordion.Panel className={accordion.Panel}>
+                                                    <div className={accordion.Content}>
+                                                        Base UI is a library of high-quality unstyled React components for design systems and
+                                                        web apps.
+                                                    </div>
+                                                </Accordion.Panel>
+                                            </Accordion.Item>
+
+                                            <Accordion.Item className={accordion.Item}>
+                                                <Accordion.Header className={accordion.Header}>
+                                                    <Accordion.Trigger className={accordion.Trigger}>
+                                                        How do I get started?
+                                                        <PlusIcon className={accordion.Icon} />
+                                                    </Accordion.Trigger>
+                                                </Accordion.Header>
+                                                <Accordion.Panel className={accordion.Panel}>
+                                                    <div className={accordion.Content}>
+                                                        Head to the “Quick start” guide in the docs. If you’ve used unstyled libraries before,
+                                                        you’ll feel at home.
+                                                    </div>
+                                                </Accordion.Panel>
+                                            </Accordion.Item>
+
+                                            <Accordion.Item className={accordion.Item}>
+                                                <Accordion.Header className={accordion.Header}>
+                                                    <Accordion.Trigger className={accordion.Trigger}>
+                                                        Can I use it for my project?
+                                                        <PlusIcon className={accordion.Icon} />
+                                                    </Accordion.Trigger>
+                                                </Accordion.Header>
+                                                <Accordion.Panel className={accordion.Panel}>
+                                                    <div className={accordion.Content}>Of course! Base UI is free and open source.</div>
+                                                </Accordion.Panel>
+                                            </Accordion.Item>
+                                        </Accordion.Root>
+
+                                    </div>
+                                    <div className="flex justify-between">
+                                        <Menu.Root>
+                                            <Menu.Trigger className={menu.Button}>
+                                                Theme <CaretDownIcon />
+                                            </Menu.Trigger>
+                                            <Menu.Portal>
+                                                <Menu.Positioner className={menu.Positioner} sideOffset={8}>
+                                                    <Menu.Popup className={menu.Popup}>
+                                                        <Menu.Item onClick={() => setTheme("dark")} className={menu.Item}>Dark</Menu.Item>
+                                                        <Menu.Item onClick={() => setTheme("light")} className={menu.Item}>Light</Menu.Item>
+                                                    </Menu.Popup>
+                                                </Menu.Positioner>
+                                            </Menu.Portal>
+                                        </Menu.Root>
+                                        <Menu.Root>
+                                            <Menu.Trigger className={menu.Button}>
+                                                Lang <CaretDownIcon />
+                                            </Menu.Trigger>
+                                            <Menu.Portal>
+                                                <Menu.Positioner className={menu.Positioner} sideOffset={8}>
+                                                    <Menu.Popup className={menu.Popup}>
+                                                        <Menu.Item className={menu.Item}>IT</Menu.Item>
+                                                        <Menu.Item className={menu.Item}>EN</Menu.Item>
+                                                        <Menu.Item className={menu.Item}>FR</Menu.Item>
+                                                        <Menu.Item className={menu.Item}>DU</Menu.Item>
+
+                                                    </Menu.Popup>
+                                                </Menu.Positioner>
+                                            </Menu.Portal>
+                                        </Menu.Root>
+                                    </div>
+
 
                                 </Drawer.Content>
                             </Drawer.Popup>
@@ -289,3 +349,21 @@ const handbookLinks = [
             'Base UI components can be replaced and composed with your own existing components.',
     },
 ];
+
+function PlusIcon(props) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="square"
+      strokeLinejoin="round"
+      {...props}
+      style={{ display: 'block', ...props.style }}
+    >
+      <path d="M1.5 8h13M8 14.5v-13" />
+    </svg>
+  );
+}

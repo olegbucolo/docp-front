@@ -68,8 +68,9 @@ const navigationMenu = {
   Content: `
     box-border
     p-2
+    
     w-[calc(100vw-40px)] max-[500px]:max-w-[400px]
-    min-[500px]:w-max
+    
 
     transition-opacity duration-150 ease-out
     transition-transform

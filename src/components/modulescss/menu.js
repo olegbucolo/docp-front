@@ -6,7 +6,7 @@ const menu = {
   box-border flex items-center justify-center gap-1.5
   h-8 m-0
 
-  bg-slate-100 dark:bg-slate-900
+  hover:bg-slate-100 dark:hover:bg-slate-800
   text-slate-900 dark:text-white
   text-sm font-normal leading-none whitespace-nowrap
 
@@ -46,7 +46,7 @@ duration-200
     border border-slate-900 dark:border-slate-100
     bg-slate-100 dark:bg-slate-900
     text-slate-900 dark:text-white
-
+    
     shadow-[0.25rem_0.25rem_0_rgb(0_0_0_/_12%)]
     dark:shadow-none
 
