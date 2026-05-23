@@ -86,20 +86,11 @@ const navigationMenu = {
   Content: `
     box-border
     p-2
-    
-    w-[calc(100vw-40px)] max-[500px]:max-w-[400px]
-    
 
-    transition-opacity duration-150 ease-out
-    transition-transform
+    w-[calc(100vw-40px)]
+    max-[500px]:max-w-[400px]
+    min-[500px]:w-fit
 
-    data-[starting-style]:opacity-0 data-[ending-style]:opacity-0
-
-    data-[activation-direction=left]:data-[starting-style]:-translate-x-1/2
-    data-[activation-direction=right]:data-[starting-style]:translate-x-1/2
-
-    data-[activation-direction=left]:data-[ending-style]:translate-x-1/2
-    data-[activation-direction=right]:data-[ending-style]:-translate-x-1/2
   `,
 
   Viewport: `
@@ -128,11 +119,13 @@ const navigationMenu = {
 
     focus-visible:outline-2 focus-visible:outline-slate-900
     dark:focus-visible:outline-white
+    hover:bg-slate-100 hover:dark:bg-slate-800
   `,
 
   LinkTitle: `
     m-0 mb-1
     text-sm font-normal leading-4
+    
   `,
 
   LinkDescription: `

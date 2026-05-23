@@ -1,6 +1,6 @@
 import { header } from "motion/react-client";
 import navigationMenu from './modulescss/navigationMenu.js'
-import { Autocomplete, Avatar, Drawer, NavigationMenu, Accordion } from "@base-ui/react";
+import { Autocomplete, Avatar, Drawer, NavigationMenu, Accordion, Separator } from "@base-ui/react";
 import api from '../config/api/api.js'
 import { useState, useEffect } from "react";
 import { Menu } from "@base-ui/react";
@@ -11,6 +11,7 @@ import { IoIosSettings } from "react-icons/io";
 import autocomplete from './modulescss/autocomplete.js'
 import { CgClose } from "react-icons/cg";
 import accordion from './modulescss/accordion.js'
+import separator from './modulescss/separator.js'
 
 
 export function HeaderComponent() {
@@ -192,7 +193,7 @@ export function HeaderComponent() {
 
 
                                                 <NavigationMenu.Item className={navigationMenu.Item}>
-                                                    <Link className={`${navigationMenu.TriggerDrawer}`} href="https://github.com/mui/base-ui">
+                                                    <Link className={`${navigationMenu.TriggerDrawer} `} href="https://github.com/mui/base-ui">
                                                         Offers
                                                     </Link>
                                                 </NavigationMenu.Item>
@@ -217,7 +218,8 @@ export function HeaderComponent() {
                                         </NavigationMenu.Root>
                                     
                                     </div>
-                                    <div className="flex justify-between">
+                                    <div className={`relative drawer-bottom flex justify-between ${separator.Container}`}>
+                                          <Separator orientation="horizontal" className={separator.Separator} />
                                         <Menu.Root>
                                             <Menu.Trigger className={menu.Button}>
                                                 Theme <CaretDownIcon />
